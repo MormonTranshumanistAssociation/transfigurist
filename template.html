@@ -8,7 +8,7 @@
 <title><data:blog.title/></title>
 <b:elseif cond='data:blog.pageName'/>
 <title><data:blog.pageName/> | <data:blog.title/></title>
-<b:elseif cond='data:blog.pageType == &quot;index&quot;'/>
+<b:elseif cond='data:blog.pageType == "index"'/>
 <title>Archive | <data:blog.title/></title>
 <b:else/>
 <title>Page Not Found | <data:blog.title/></title>
@@ -18,7 +18,7 @@
 
 <meta expr:content='data:blog.title' property='og:site_name'/>
 <meta content='en_US' property='og:locale'/>
-<b:if cond='data:blog.pageType != &quot;item&quot;'>
+<b:if cond='data:blog.pageType != "item"'>
 <meta content='website' property='og:type'/>
 <b:else/>
 <meta content='article' property='og:type'/>
@@ -33,17 +33,17 @@
 <meta expr:content='data:blog.title' property='og:title'/>
 <meta expr:content='data:blog.title' name='twitter:title'/>
 <b:elseif cond='data:blog.pageName'/>
-<meta expr:content='data:blog.pageName + &quot; | &quot; + data:blog.title' itemprop='name'/>
-<meta expr:content='data:blog.pageName + &quot; | &quot; + data:blog.title' property='og:title'/>
-<meta expr:content='data:blog.pageName + &quot; | &quot; + data:blog.title' name='twitter:title'/>
-<b:elseif cond='data:blog.pageType == &quot;index&quot;'/>
-<meta expr:content='&quot;Archive | &quot; + data:blog.title' itemprop='name'/>
-<meta expr:content='&quot;Archive | &quot; + data:blog.title' property='og:title'/>
-<meta expr:content='&quot;Archive | &quot; + data:blog.title' name='twitter:title'/>
+<meta expr:content='data:blog.pageName + " | " + data:blog.title' itemprop='name'/>
+<meta expr:content='data:blog.pageName + " | " + data:blog.title' property='og:title'/>
+<meta expr:content='data:blog.pageName + " | " + data:blog.title' name='twitter:title'/>
+<b:elseif cond='data:blog.pageType == "index"'/>
+<meta expr:content='"Archive | " + data:blog.title' itemprop='name'/>
+<meta expr:content='"Archive | " + data:blog.title' property='og:title'/>
+<meta expr:content='"Archive | " + data:blog.title' name='twitter:title'/>
 <b:else/>
-<meta expr:content='&quot;Page Not Found | &quot; + data:blog.title' itemprop='name'/>
-<meta expr:content='&quot;Page Not Found | &quot; + data:blog.title' property='og:title'/>
-<meta expr:content='&quot;Page Not Found | &quot; + data:blog.title' name='twitter:title'/>
+<meta expr:content='"Page Not Found | " + data:blog.title' itemprop='name'/>
+<meta expr:content='"Page Not Found | " + data:blog.title' property='og:title'/>
+<meta expr:content='"Page Not Found | " + data:blog.title' name='twitter:title'/>
 </b:if>
 
 <b:if cond='data:blog.metaDescription'>
@@ -77,7 +77,7 @@
 <meta content='http://legacy.transfigurism.org/assets/142/mta-banner.png' name='twitter:image'/>
 </b:if>
 
-<b:if cond='data:blog.pageType == &quot;archive&quot;'>
+<b:if cond='data:blog.pageType == "archive"'>
 <meta content='noindex,noarchive' name='robots'/>
 </b:if>
 
@@ -127,15 +127,15 @@
 
 <!-- start google analytics -->
 <script>
-  (function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga(&#39;create&#39;, &#39;UA-1414775-2&#39;, &#39;auto&#39;);
-  ga(&#39;require&#39;, &#39;displayfeatures&#39;);
-  ga(&#39;require&#39;, &#39;linkid&#39;, &#39;linkid.js&#39;);
-  ga(&#39;send&#39;, &#39;pageview&#39;);
+  ga('create', 'UA-1414775-2', 'auto');
+  ga('require', 'displayfeatures');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
 
 </script>
 <!-- stop google analytics -->
@@ -162,13 +162,13 @@
     <b:includable id='main'>
 
   <b:if cond='data:useImage'>
-    <b:if cond='data:imagePlacement == &quot;BEHIND&quot;'>
+    <b:if cond='data:imagePlacement == "BEHIND"'>
       <!--
-      Show image as background to text. You can't really calculate the width
+      Show image as background to text. You can&apos;t really calculate the width
       reliably in JS because margins are not taken into account by any of
-      clientWidth, offsetWidth or scrollWidth, so we don't force a minimum
+      clientWidth, offsetWidth or scrollWidth, so we don&apos;t force a minimum
       width if the user is using shrink to fit.
-      This results in a margin-width's worth of pixels being cropped. If the
+      This results in a margin-width&apos;s worth of pixels being cropped. If the
       user is not using shrink to fit then we expand the header.
       -->
       <b:if cond='data:mobile'>
@@ -181,7 +181,7 @@
           <b:include name='description'/>
         </div>
       <b:else/>
-        <div expr:style='&quot;background-image: url(\&quot;&quot; + data:sourceUrl + &quot;\&quot;); &quot;                      + &quot;background-position: &quot;                      + data:backgroundPositionStyleStr + &quot;; &quot;                      + data:widthStyleStr                      + &quot;min-height: &quot; + data:height                      + &quot;_height: &quot; + data:height                      + &quot;background-repeat: no-repeat; &quot;' id='header-inner'>
+        <div expr:style='"background-image: url(\"" + data:sourceUrl + "\"); "                      + "background-position: "                      + data:backgroundPositionStyleStr + "; "                      + data:widthStyleStr                      + "min-height: " + data:height                      + "_height: " + data:height                      + "background-repeat: no-repeat; "' id='header-inner'>
           <div class='titlewrapper' style='background: transparent'>
             <h1 class='title' style='background: transparent; border-width: 0px'>
               <b:include name='title'/>
@@ -194,10 +194,10 @@
       <!--Show the image only-->
       <div id='header-inner'>
         <a expr:href='data:blog.homepageUrl' style='display: block'>
-          <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_headerimg&quot;' expr:src='data:sourceUrl' expr:width='data:width' style='display: block'/>
+          <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + "_headerimg"' expr:src='data:sourceUrl' expr:width='data:width' style='display: block'/>
         </a>
         <!--Show the description-->
-        <b:if cond='data:imagePlacement == &quot;BEFORE_DESCRIPTION&quot;'>
+        <b:if cond='data:imagePlacement == "BEFORE_DESCRIPTION"'>
           <b:include name='description'/>
         </b:if>
       </div>
@@ -226,7 +226,7 @@
 </b:includable>
   </b:widget>
 </b:section>
-  <div id='logo'><a href='http://www.transfigurism.org' onclick='ga(&quot;send&quot;, &quot;event&quot;, &quot;link&quot;, &quot;click&quot;, &quot;referral&quot;)'><img border='0' src='http://legacy.transfigurism.org/assets/114/mta-logo-transfigurist.png?v1'/></a></div>
+  <div id='logo'><a href='http://www.transfigurism.org' onclick='ga("send", "event", "link", "click", "referral")'><img border='0' src='http://legacy.transfigurism.org/assets/114/mta-logo-transfigurist.png?v1'/></a></div>
 </div>
 </div>
 
@@ -239,10 +239,10 @@
       <b:widget-setting name='homeTitle'>Home</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
-  <b:if cond='data:title != &quot;&quot;'><h2><data:title/></h2></b:if>
+  <b:if cond='data:title != ""'><h2><data:title/></h2></b:if>
   <div class='widget-content'>
     <b:if cond='data:mobile'>
-      <select expr:id='data:widget.instanceId + &quot;_select&quot;'>
+      <select expr:id='data:widget.instanceId + "_select"'>
         <b:loop values='data:links' var='link'>
           <option b:whitespace='remove' expr:value='data:link.href'>
             <b:attr cond='data:link.isCurrentPage' name='selected' value='selected'/>
@@ -313,7 +313,7 @@
       <b:widget-setting name='showReactions'>false</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main' var='top'>
-  <b:if cond='data:mobile == &quot;false&quot;'>
+  <b:if cond='data:mobile == "false"'>
 
 <div class='blog-posts hfeed' itemprop='isPartOf' itemscope='itemscope' itemtype='http://schema.org/Blog'>
 <meta content='The Transfigurist' itemprop='name'/>
@@ -328,25 +328,25 @@
       <data:defaultAdStart/>
       <b:loop values='data:posts' var='post'>
         <b:if cond='data:post.isDateStart'>
-          <b:if cond='data:post.isFirstPost == &quot;false&quot;'>
-            &lt;/div&gt;&lt;/div&gt;
+          <b:if cond='data:post.isFirstPost == "false"'>
+            </div></div>
           </b:if>
         </b:if>
         <b:if cond='data:post.isDateStart'>
-          &lt;div class=&quot;date-outer&quot;&gt;
+          <div class="date-outer">
         </b:if>
         <b:if cond='data:post.dateHeader'>
           <h2 class='date-header'><span><data:post.dateHeader/></span></h2>
         </b:if>
         <b:if cond='data:post.isDateStart'>
-          &lt;div class=&quot;date-posts&quot;&gt;
+          <div class="date-posts">
         </b:if>
         <div class='post-outer'>
         <b:include data='post' name='post'/>
-        <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+        <b:if cond='data:blog.pageType == "static_page"'>
           <b:include data='post' name='comment_picker'/>
         </b:if>
-        <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <b:if cond='data:blog.pageType == "item"'>
           <b:include data='post' name='comment_picker'/>
         </b:if>
         </div>
@@ -363,7 +363,7 @@
         </b:if>
       </b:loop>
       <b:if cond='data:numPosts != 0'>
-        &lt;/div&gt;&lt;/div&gt;
+        </div></div>
       </b:if>
       <data:adEnd/>
     </div>
@@ -381,7 +381,7 @@
 
 </b:includable>
     <b:includable id='backlinkDeleteIcon' var='backlink'>
-  <span expr:class='&quot;item-control &quot; + data:backlink.adminClass'>
+  <span expr:class='"item-control " + data:backlink.adminClass'>
     <a expr:href='data:backlink.deleteUrl' expr:title='data:top.deleteBacklinkMsg'>
       <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
     </a>
@@ -394,7 +394,7 @@
       <b:loop values='data:post.backlinks' var='backlink'>
         <div class='collapsed-backlink backlink-control'>
           <dt class='comment-title'>
-            <span class='backlink-toggle-zippy'>&#160;</span>
+            <span class='backlink-toggle-zippy'>&nbsp;</span>
             <a expr:href='data:backlink.url' rel='nofollow'><data:backlink.title/></a>
             <b:include data='backlink' name='backlinkDeleteIcon'/>
           </dt>
@@ -410,7 +410,7 @@
     </dl>
   </b:if>
   <p class='comment-footer'>
-    <a class='comment-link' expr:href='data:post.createLinkUrl' expr:id='data:widget.instanceId + &quot;_backlinks-create-link&quot;' target='_blank'><data:post.createLinkLabel/></a>
+    <a class='comment-link' expr:href='data:post.createLinkUrl' expr:id='data:widget.instanceId + "_backlinks-create-link"' target='_blank'><data:post.createLinkLabel/></a>
   </p>
 </b:includable>
     <b:includable id='comment-form' var='post'>
@@ -419,7 +419,7 @@
     <a name='comment-form'/>
     <b:if cond='data:mobile'>
       <h4 id='comment-post-message'>
-        <a expr:id='data:widget.instanceId + &quot;_comment-editor-toggle-link&quot;' href='javascript:void(0)'><data:postCommentMsg/></a></h4>
+        <a expr:id='data:widget.instanceId + "_comment-editor-toggle-link"' href='javascript:void(0)'><data:postCommentMsg/></a></h4>
       <p><data:blogCommentMessage/></p>
       <data:blogTeamBlogMessage/>
       <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
@@ -434,12 +434,12 @@
     <data:post.friendConnectJs/>
     <data:post.cmtfpIframe/>
     <script type='text/javascript'>
-      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+      BLOG_CMT_createIframe('<data:post.appRpcRelayPath/>');
     </script>
   </div>
 </b:includable>
     <b:includable id='commentDeleteIcon' var='comment'>
-  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+  <span expr:class='"item-control " + data:comment.adminClass'>
     <b:if cond='data:showCmtPopup'>
       <div class='goog-toggle-button'>
         <div class='goog-inline-block comment-action-icon'/>
@@ -463,7 +463,7 @@
 </b:includable>
     <b:includable id='comment_picker' var='post'>
 
-<b:if cond='data:blog.pageType == &quot;item&quot;'>
+<b:if cond='data:blog.pageType == "item"'>
 
 <div class='addthis_native_toolbox'/>
 <div class='addthis_sharing_toolbox'/>
@@ -474,21 +474,21 @@
     <script async='async' var='post'>
       /* * * CONFIGURATION VARIABLES: THIS CODE IS ONLY AN EXAMPLE * * */
       window.twtConfig = {
-        publisherId: &#39;0000014bf5d21d6f_92c535c&#39;,
-        siteId: &#39;0000014bf5d310af_14e8cc9&#39;,
-        authorId: &#39;<data:post.authorProfileUrl/>&#39;,
+        publisherId: '0000014bf5d21d6f_92c535c',
+        siteId: '0000014bf5d310af_14e8cc9',
+        authorId: '<data:post.authorProfileUrl/>',
         pageTitle: document.title.match(/(.*) \|.*/)[1],
-        permalink: &#39;<data:blog.canonicalUrl/>&#39;
+        permalink: '<data:blog.canonicalUrl/>'
       };
 
-      /* * * DON&#39;T EDIT BELOW THIS LINE * * */
+      /* * * DON'T EDIT BELOW THIS LINE * * */
       (function () {
-        var twt = document.createElement(&#39;script&#39;);
-        twt.type = &#39;text/javascript&#39;;
+        var twt = document.createElement('script');
+        twt.type = 'text/javascript';
         twt.async = true;
-        twt.src = &#39;https://app.worldtable.co/embed.js&#39;;
+        twt.src = 'https://app.worldtable.co/embed.js';
 
-        (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(twt);
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(twt);
       })();
     </script>
 
@@ -516,26 +516,26 @@
         <span class='paging-control-container'>
           <b:if cond='data:post.hasOlderLinks'>
             <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'><data:post.oldestLinkText/></a>
-              &#160;
+              &nbsp;
             <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'><data:post.olderLinkText/></a>
-              &#160;
+              &nbsp;
           </b:if>
 
           <data:post.commentRangeText/>
 
           <b:if cond='data:post.hasNewerLinks'>
-            &#160;
+            &nbsp;
             <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'><data:post.newerLinkText/></a>
-            &#160;
+            &nbsp;
             <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'><data:post.newestLinkText/></a>
           </b:if>
         </span>
       </b:if>
 
-      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
+      <div expr:id='data:widget.instanceId + "_comments-block-wrapper"'>
         <dl expr:class='data:post.avatarIndentClass' id='comments-block'>
           <b:loop values='data:post.comments' var='comment'>
-            <dt expr:class='&quot;comment-author &quot; + data:comment.authorClass' expr:id='data:comment.anchorName'>
+            <dt expr:class='"comment-author " + data:comment.authorClass' expr:id='data:comment.anchorName'>
               <b:if cond='data:comment.favicon'>
                 <img expr:src='data:comment.favicon' height='16px' style='margin-bottom:-2px;' width='16px'/>
               </b:if>
@@ -579,9 +579,9 @@
           <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
             <data:post.olderLinkText/>
           </a>
-          &#160;
+          &nbsp;
           <data:post.commentRangeText/>
-          &#160;
+          &nbsp;
           <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
             <data:post.newerLinkText/>
           </a>
@@ -611,14 +611,14 @@
     </b:if>
 
     <div id='backlinks-container'>
-    <div expr:id='data:widget.instanceId + &quot;_backlinks-container&quot;'>
+    <div expr:id='data:widget.instanceId + "_backlinks-container"'>
        <b:include cond='data:post.showBacklinks' data='post' name='backlinks'/>
     </div>
     </div>
   </div>
 </b:includable>
     <b:includable id='feedLinks'>
-  <b:if cond='data:blog.pageType != &quot;item&quot;'> <!-- Blog feed links -->
+  <b:if cond='data:blog.pageType != "item"'> <!-- Blog feed links -->
     <b:if cond='data:feedLinks'>
       <div class='blog-feeds'>
         <b:include data='feedLinks' name='feedLinksBody'/>
@@ -647,7 +647,7 @@
     <script expr:src='data:post.iframeCommentSrc' type='text/javascript'/>
     <div class='cmt_iframe_holder' expr:data-href='data:post.url.canonical' expr:data-viewtype='data:post.viewType'/>
 
-    <b:if cond='data:post.embedCommentForm == &quot;false&quot;'>
+    <b:if cond='data:post.embedCommentForm == "false"'>
       <a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'><data:postCommentMsg/></a>
     </b:if>
   </b:if>
@@ -686,7 +686,7 @@
       </a>
 
       <div class='mobile-index-comment'>
-        <b:include cond='data:blog.pageType != &quot;static_page&quot;                          and data:post.allowComments                          and data:post.numComments != 0' data='post' name='comment_count_picker'/>
+        <b:include cond='data:blog.pageType != "static_page"                          and data:post.allowComments                          and data:post.numComments != 0' data='post' name='comment_count_picker'/>
       </div>
     </div>
   </div>
@@ -697,7 +697,7 @@
 
       <b:include data='top' name='status-message'/>
 
-      <b:if cond='data:blog.pageType == &quot;index&quot;'>
+      <b:if cond='data:blog.pageType == "index"'>
         <b:loop values='data:posts' var='post'>
           <b:include data='post' name='mobile-index-post'/>
         </b:loop>
@@ -743,7 +743,7 @@
             <div class='post-header-line-1'/>
           </div>
 
-          <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='articleBody'>
+          <div class='post-body entry-content' expr:id='"post-body-" + data:post.id' itemprop='articleBody'>
             <data:post.body/>
             <div style='clear: both;'/> <!-- clear for photos floats -->
           </div>
@@ -778,7 +778,7 @@
               </span>
 
               <span class='post-comment-link'>
-                <b:include cond='data:blog.pageType not in {&quot;item&quot;,&quot;static_page&quot;}                                  and data:post.allowComments' data='post' name='comment_count_picker'/>
+                <b:include cond='data:blog.pageType not in {"item","static_page"}                                  and data:post.allowComments' data='post' name='comment_count_picker'/>
               </span>
             </div>
 
@@ -796,7 +796,7 @@
           </div>
         </div>
 
-        <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
+        <b:include cond='data:blog.pageType in {"static_page","item"}' data='post' name='comment_picker'/>
       </div>
     </div>
   </div>
@@ -855,14 +855,14 @@
 </div>
 </div>
 
-<div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='description articleBody text'>
+<div class='post-body entry-content' expr:id='"post-body-" + data:post.id' itemprop='description articleBody text'>
 <data:post.body/>
 <div style='clear: both;'/> <!-- clear for photos floats -->
 </div>
 
     <b:if cond='data:post.hasJumpLink'>
       <div class='jump-link'>
-        <a expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
+        <a expr:href='data:post.url + "#more"' expr:title='data:post.title'><data:post.jumpText/></a>
       </div>
     </b:if>
 
@@ -873,7 +873,7 @@
 <span class='post-labels'>
 <data:postLabelsLabel/>
 <b:loop values='data:post.labels' var='label'>
-<a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != &quot;true&quot;'>,</b:if>
+<a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != "true"'>,</b:if>
 </b:loop>
 </span>
 </b:if>
@@ -899,8 +899,8 @@
 
 <div class='post-footer-line post-footer-line-3'>
 <span class='post-comment-link'>
-<b:if cond='data:blog.pageType != &quot;item&quot;'>
-<b:if cond='data:blog.pageType != &quot;static_page&quot;'>
+<b:if cond='data:blog.pageType != "item"'>
+<b:if cond='data:blog.pageType != "static_page"'>
 <b:if cond='data:post.allowComments'>
 <b:include data='post' name='comment_count_picker'/>
 </b:if>
@@ -916,7 +916,7 @@
 </b:includable>
     <b:includable id='postQuickEdit' var='post'>
   <b:if cond='data:post.editUrl'>
-    <span expr:class='&quot;item-control &quot; + data:post.adminClass'>
+    <span expr:class='"item-control " + data:post.adminClass'>
       <a expr:href='data:post.editUrl' expr:title='data:top.editPostMsg'>
         <img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
       </a>
@@ -957,7 +957,7 @@
     </b:if>
     <data:post.cmtfpIframe/>
     <script type='text/javascript'>
-      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+      BLOG_CMT_createIframe('<data:post.appRpcRelayPath/>');
     </script>
   </div>
 </b:includable>
@@ -1171,7 +1171,7 @@
     </b:if>
 
     <div id='backlinks-container'>
-    <div expr:id='data:widget.instanceId + &quot;_backlinks-container&quot;'>
+    <div expr:id='data:widget.instanceId + "_backlinks-container"'>
       <b:include cond='data:post.showBacklinks' data='post' name='backlinks'/>
     </div>
     </div>
@@ -1216,7 +1216,7 @@
     </b:widget-settings>
     <b:includable id='main'>
     <div class='widget-content' style='text-align: center;'>
-      <b:if cond='data:attribution != &quot;&quot;'>
+      <b:if cond='data:attribution != ""'>
        <data:attribution/>
       </b:if>
     </div>
@@ -1225,7 +1225,7 @@
   </b:includable>
   </b:widget>
 </b:section>
-<div id='footer-text'>&#169; 2014<script>var fullYear = (new Date()).getFullYear(); if (fullYear != 2014) document.write(&#39;-&#39; + fullYear)</script> <a href='http://legacy.transfigurism.org' onclick='ga(&quot;send&quot;, &quot;event&quot;, &quot;link&quot;, &quot;click&quot;, &quot;referral&quot;)'>Mormon Transhumanist Association</a>. All rights reserved. Powered by <a href='http://www.blogger.com'>Blogger</a>.</div>
+<div id='footer-text'>&#169; 2014<script>var fullYear = (new Date()).getFullYear(); if (fullYear != 2014) document.write('-' + fullYear)</script> <a href='http://legacy.transfigurism.org' onclick='ga("send", "event", "link", "click", "referral")'>Mormon Transhumanist Association</a>. All rights reserved. Powered by <a href='http://www.blogger.com'>Blogger</a>.</div>
 </div>
 </div>
 
@@ -1251,29 +1251,29 @@ var google_remarketing_only = true;
 <macro:includable id='sections' var='col'>
   <macro:if cond='data:col.num == 0'>
   <macro:else/>
-    <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + &quot;-1&quot;' preferred='yes' showaddelement='yes'/>
+    <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + "-1"' preferred='yes' showaddelement='yes'/>
 
-    <macro:if cond='data:col.num &gt;= 2'>
-      <table border='0' cellpadding='0' cellspacing='0' mexpr:class='&quot;section-columns columns-&quot; + data:col.num'>
+    <macro:if cond='data:col.num >= 2'>
+      <table border='0' cellpadding='0' cellspacing='0' mexpr:class='"section-columns columns-" + data:col.num'>
       <tbody>
       <tr>
         <td class='first columns-cell'>
-          <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + &quot;-2-1&quot;'/>
+          <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + "-2-1"'/>
         </td>
 
         <td class='columns-cell'>
-          <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + &quot;-2-2&quot;'/>
+          <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + "-2-2"'/>
         </td>
 
-        <macro:if cond='data:col.num &gt;= 3'>
+        <macro:if cond='data:col.num >= 3'>
           <td class='columns-cell'>
-            <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + &quot;-2-3&quot;'/>
+            <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + "-2-3"'/>
           </td>
         </macro:if>
 
-        <macro:if cond='data:col.num &gt;= 4'>
+        <macro:if cond='data:col.num >= 4'>
           <td class='columns-cell'>
-            <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + &quot;-2-4&quot;'/>
+            <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + "-2-4"'/>
           </td>
         </macro:if>
       </tr>
@@ -1281,7 +1281,7 @@ var google_remarketing_only = true;
       </table>
 
       <macro:if cond='data:col.includeBottom'>
-        <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + &quot;-3&quot;' showaddelement='no'/>
+        <b:section mexpr:class='data:col.class' mexpr:id='data:col.idPrefix + "-3"' showaddelement='no'/>
       </macro:if>
     </macro:if>
   </macro:if>
@@ -1295,17 +1295,17 @@ var google_remarketing_only = true;
 <b:section-contents id='sidebar-left-1'/><b:section-contents id='sidebar-right-1'>
   <b:widget id='HTML1' locked='false' title='' type='HTML'>
     <b:widget-settings>
-      <b:widget-setting name='content'>&lt;a href=&quot;/p/subscribe.html&quot;&gt;&lt;img class=&quot;first-connect-icon&quot; src=&quot;http://legacy.transfigurism.org/assets/122/email-32.png&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://www.facebook.com/transfigurism&quot;&gt;&lt;img class=&quot;connect-icon&quot; src=&quot;http://legacy.transfigurism.org/assets/116/facebook-32.png&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://plus.google.com/+TransfigurismOrg&quot;&gt;&lt;img class=&quot;connect-icon&quot; src=&quot;http://legacy.transfigurism.org/assets/119/googleplus-32.png&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://www.linkedin.com/company/mormon-transhumanist-association&quot;&gt;&lt;img class=&quot;connect-icon&quot; src=&quot;http://legacy.transfigurism.org/assets/118/linkedin-32.png&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://twitter.com/transfigurism&quot;&gt;&lt;img class=&quot;connect-icon&quot; src=&quot;http://legacy.transfigurism.org/assets/117/twitter-32.png&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;https://www.youtube.com/user/transfigurism&quot;&gt;&lt;img class=&quot;connect-icon&quot; src=&quot;http://legacy.transfigurism.org/assets/120/youtube-32.png&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;http://feeds.transfigurism.org/Transfigurist&quot;&gt;&lt;img class=&quot;connect-icon&quot; src=&quot;http://legacy.transfigurism.org/assets/121/rss-32.png&quot; /&gt;&lt;/a&gt;</b:widget-setting>
+      <b:widget-setting name='content'><a href="/p/subscribe.html"><img class="first-connect-icon" src="http://legacy.transfigurism.org/assets/122/email-32.png" /></a>
+<a href="https://www.facebook.com/transfigurism"><img class="connect-icon" src="http://legacy.transfigurism.org/assets/116/facebook-32.png" /></a>
+<a href="https://plus.google.com/+TransfigurismOrg"><img class="connect-icon" src="http://legacy.transfigurism.org/assets/119/googleplus-32.png" /></a>
+<a href="https://www.linkedin.com/company/mormon-transhumanist-association"><img class="connect-icon" src="http://legacy.transfigurism.org/assets/118/linkedin-32.png" /></a>
+<a href="https://twitter.com/transfigurism"><img class="connect-icon" src="http://legacy.transfigurism.org/assets/117/twitter-32.png" /></a>
+<a href="https://www.youtube.com/user/transfigurism"><img class="connect-icon" src="http://legacy.transfigurism.org/assets/120/youtube-32.png" /></a>
+<a href="http://feeds.transfigurism.org/Transfigurist"><img class="connect-icon" src="http://legacy.transfigurism.org/assets/121/rss-32.png" /></a></b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
-  <!-- only display title if it's non-empty -->
-  <b:if cond='data:title != &quot;&quot;'>
+  <!-- only display title if it&apos;s non-empty -->
+  <b:if cond='data:title != ""'>
     <h2><data:title/></h2>
   </b:if>
   <div class='widget-content'>
@@ -1323,7 +1323,7 @@ var google_remarketing_only = true;
       <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
-  <b:if cond='data:title != &quot;&quot;'><h2><data:title/></h2></b:if>
+  <b:if cond='data:title != ""'><h2><data:title/></h2></b:if>
   <div class='widget-content popular-posts'>
     <ul>
       <b:loop values='data:posts' var='post'>
@@ -1339,11 +1339,11 @@ var google_remarketing_only = true;
           </b:if>
         <b:else/>
           <!-- (3) Show only thumbnails or (4) Snippets and thumbnails. -->
-          <div expr:class='data:showSnippets ? &quot;item-content&quot; : &quot;item-thumbnail-only&quot;'>
+          <div expr:class='data:showSnippets ? "item-content" : "item-thumbnail-only"'>
             <b:if cond='data:post.featuredImage.isResizable or data:post.thumbnail'>
               <div class='item-thumbnail'>
                 <a expr:href='data:post.href' target='_blank'>
-                  <b:with value='data:post.featuredImage.isResizable                                  ? resizeImage(data:post.featuredImage, 72, &quot;1:1&quot;)                                  : data:post.thumbnail' var='image'>
+                  <b:with value='data:post.featuredImage.isResizable                                  ? resizeImage(data:post.featuredImage, 72, "1:1")                                  : data:post.thumbnail' var='image'>
                     <img alt='' border='0' expr:src='data:image'/>
                   </b:with>
                 </a>
@@ -1373,7 +1373,7 @@ var google_remarketing_only = true;
     </b:widget-settings>
     <b:includable id='main'>
     <h2><data:title/></h2>
-    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
+    <div class='widget-content' expr:id='data:widget.instanceId + "_feedItemListDisplay"'>
       <span style='filter: alpha(25); opacity: 0.25;'>
         <a expr:href='data:feedUrl'><data:loadingMsg/></a>
       </span>
@@ -1383,26 +1383,26 @@ var google_remarketing_only = true;
   </b:widget>
   <b:widget id='HTML3' locked='false' title='Comments' type='HTML'>
     <b:widget-settings>
-      <b:widget-setting name='content'>&lt;script id=&quot;twt-widget&quot; type=&quot;text/javascript&quot;&gt;
+      <b:widget-setting name='content'><script id="twt-widget" type"text/javascript">
         window.twtWidget = {
-          scope: &#39;site&#39;,
-          id: &#39;0000014bf5d310af_14e8cc9&#39;
+          scope:'site',
+          id: '0000014bf5d310af_14e8cc9';
         };
 
         (function () {
-          var twt = document.createElement(&#39;script&#39;);
-          twt.type = &#39;text/javascript&#39;;
+          var twt = document.createElement('script');
+          twt.type = 'text/javascript';
           twt.async = true;
-          twt.src = &#39;https://app.worldtable.co/widget.js&#39;;
+          twt.src = 'https://app.worldtable.co/widget.js';
 
-          (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(twt);
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(twt);
 
         })();
-&lt;/script&gt;</b:widget-setting>
+</script></b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
-  <!-- only display title if it's non-empty -->
-  <b:if cond='data:title != &quot;&quot;'>
+  <!-- only display title if it&apos;s non-empty -->
+  <b:if cond='data:title != ""'>
     <h2 class='title'><data:title/></h2>
   </b:if>
   <div class='widget-content'>
@@ -1425,15 +1425,15 @@ var google_remarketing_only = true;
       <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
-  <b:if cond='data:title != &quot;&quot;'>
+  <b:if cond='data:title != ""'>
     <h2><data:title/></h2>
   </b:if>
   <div class='widget-content'>
   <div id='ArchiveList'>
-  <div expr:id='data:widget.instanceId + &quot;_ArchiveList&quot;'>
-    <b:include cond='data:style == &quot;HIERARCHY&quot;' data='data' name='interval'/>
-    <b:include cond='data:style == &quot;FLAT&quot;' data='data' name='flat'/>
-    <b:include cond='data:style == &quot;MENU&quot;' data='data' name='menu'/>
+  <div expr:id='data:widget.instanceId + "_ArchiveList"'>
+    <b:include cond='data:style == "HIERARCHY"' data='data' name='interval'/>
+    <b:include cond='data:style == "FLAT"' data='data' name='flat'/>
+    <b:include cond='data:style == "MENU"' data='data' name='menu'/>
   </div>
   </div>
   <b:include name='quickedit'/>
@@ -1451,7 +1451,7 @@ var google_remarketing_only = true;
     <b:includable id='interval' var='intervalData'>
   <b:loop values='data:intervalData' var='interval'>
     <ul class='hierarchy'>
-      <li expr:class='&quot;archivedate &quot; + data:interval.expclass'>
+      <li expr:class='"archivedate " + data:interval.expclass'>
         <b:include cond='data:interval.toggleId' data='interval' name='toggle'/>
         <a class='post-count-link' expr:href='data:interval.url'>
           <data:interval.name/>
@@ -1464,7 +1464,7 @@ var google_remarketing_only = true;
   </b:loop>
 </b:includable>
     <b:includable id='menu' var='data'>
-  <select expr:id='data:widget.instanceId + &quot;_ArchiveMenu&quot;'>
+  <select expr:id='data:widget.instanceId + "_ArchiveMenu"'>
     <option value=''><data:title/></option>
     <b:loop values='data:data' var='i'>
       <option expr:value='data:i.url'><data:i.name/> (<data:i.post-count/>)</option>
@@ -1480,13 +1480,13 @@ var google_remarketing_only = true;
 </b:includable>
     <b:includable id='toggle' var='interval'>
   <a class='toggle' href='javascript:void(0)'>
-    <span expr:class='&quot;zippy&quot; + (data:interval.expclass == &quot;expanded&quot; ? &quot; toggle-open&quot; : &quot;&quot;)'>
-      <b:if cond='data:interval.expclass == &quot;expanded&quot;'>
-        &#9660;&#160;
-      <b:elseif cond='data:blog.languageDirection == &quot;rtl&quot;'/>
-        &#9668;&#160;
+    <span expr:class='"zippy" + (data:interval.expclass == "expanded" ? " toggle-open" : "")'>
+      <b:if cond='data:interval.expclass == "expanded"'>
+        &#9660;&nbsp;
+      <b:elseif cond='data:blog.languageDirection == "rtl"'/>
+        &#9668;&nbsp;
       <b:else/>
-        &#9658;&#160;
+        &#9658;&nbsp;
       </b:if>
     </span>
   </a>
@@ -1502,7 +1502,7 @@ var google_remarketing_only = true;
     </b:widget-settings>
     <b:includable id='main'>
     <h2><data:title/></h2>
-    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
+    <div class='widget-content' expr:id='data:widget.instanceId + "_feedItemListDisplay"'>
       <span style='filter: alpha(25); opacity: 0.25;'>
         <a expr:href='data:feedUrl'><data:loadingMsg/></a>
       </span>
@@ -1512,13 +1512,13 @@ var google_remarketing_only = true;
   </b:widget>
   <b:widget id='HTML2' locked='false' title='' type='HTML'>
     <b:widget-settings>
-      <b:widget-setting name='content'>&lt;a href=&quot;http://legacy.transfigurism.org&quot; onclick=&quot;ga(&#39;send&#39;, &#39;event&#39;, &#39;link&#39;, &#39;click&#39;, &#39;referral&#39;)&quot; style=&quot;display: block; margin-bottom: 20px;&quot;&gt;&lt;img alt=&quot;Mormon Transhumanist Association&quot; src=&quot;http://legacy.transfigurism.org/assets/142/mta-banner.png&quot; style=&quot;width: 280px;&quot; /&gt;&lt;/a&gt;
+      <b:widget-setting name='content'><a href="http://legacy.transfigurism.org" onclick="ga('send', 'event', 'link', 'click', 'referral')" style="display: block; margin-bottom: 20px;"><img alt="Mormon Transhumanist Association" src="http://legacy.transfigurism.org/assets/142/mta-banner.png" style="width: 280px;" /></a>
 
-&lt;a href=&quot;http://new-god-argument.com&quot; style=&quot;display: block; margin-bottom: 20px;&quot;&gt;&lt;img alt=&quot;The New God Argument&quot; src=&quot;http://new-god-argument.com/images/nga-banner.png&quot; style=&quot;width: 280px;&quot; /&gt;&lt;/a&gt;</b:widget-setting>
+<a href="http://new-god-argument.com" style="display: block; margin-bottom: 20px;"><img alt="The New God Argument" src="http://new-god-argument.com/images/nga-banner.png" style="width: 280px;" /></a></b:widget-setting>
     </b:widget-settings>
     <b:includable id='main'>
-  <!-- only display title if it's non-empty -->
-  <b:if cond='data:title != &quot;&quot;'>
+  <!-- only display title if it&apos;s non-empty -->
+  <b:if cond='data:title != ""'>
     <h2 class='title'><data:title/></h2>
   </b:if>
   <div class='widget-content'>
