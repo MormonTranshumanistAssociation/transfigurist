@@ -347,6 +347,7 @@
         </b:if>
         <div class='post-outer'>
         <b:include data='post' name='post'/>
+        <b:include name='nextprev'/>
         <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
           <b:include data='post' name='comment_picker'/>
         </b:if>
@@ -805,7 +806,31 @@
     </div>
   </div>
 </b:includable>
-    <b:includable id='nextprev'/>
+<b:includable id='nextprev'>
+    <div class='blog-pager' id='blog-pager'>
+        <b:if cond='data:newerPageUrl'>
+            <span id='blog-pager-newer-link'>
+      <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
+      </span>
+        </b:if>
+        <b:if cond='data:olderPageUrl'>
+            <span id='blog-pager-older-link'>
+      <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
+      </span>
+        </b:if>
+        <a class='home-link' expr:href='data:blog.homepageUrl'>
+            <data:homeMsg/>
+        </a>
+        <b:if cond='data:mobileLinkUrl'>
+            <div class='blog-mobile-link'>
+                <a expr:href='data:mobileLinkUrl'>
+                    <data:mobileLinkMsg/>
+                </a>
+            </div>
+        </b:if>
+    </div>
+    <div class='clear' />
+</b:includable>
     <b:includable id='post' var='post'>
 
 <div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
@@ -1250,6 +1275,20 @@ var google_remarketing_only = true;
 </noscript>
 <!-- Stop Google Code for Remarketing Tag -->
 
+<!-- replace Older/Newer post links with post titles -->
+<script type="text/javascript">
+  var olderLink = $("a.blog-pager-older-link").attr("href");
+  $("a.blog-pager-older-link").load(olderLink+" h3:first", function() {
+    var olderLinkTitle = $("a.blog-pager-older-link:first").text();
+    $("a.blog-pager-older-link").text(olderLinkTitle);
+  });
+  var newerLink = $("a.blog-pager-newer-link").attr("href");
+  $("a.blog-pager-newer-link").load(newerLink+" h3:first", function() {
+    var newerLinkTitle = $("a.blog-pager-newer-link:first").text();
+    $("a.blog-pager-newer-link").text(newerLinkTitle);
+  });
+</script>
+
 </body>
 
 <macro:includable id='sections' var='col'>
@@ -1531,5 +1570,7 @@ var google_remarketing_only = true;
 
   <b:include name='quickedit'/>
 </b:includable>
+
   </b:widget>
-</b:section-contents><b:section-contents id='footer-1'/></html>
+</b:section-contents><b:section-contents id='footer-1'/>
+</html>
