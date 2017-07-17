@@ -475,14 +475,19 @@
                       <!-- World Table comments insertion point -->
                       <div id='twt-embed'/>
                       <script async='async' var='post'>
+
+                        var authorId = &#39;<data:post.authorProfileUrl/>&#39;
+                        var pageTitle = &#39;<data:post.title/>&#39;
+                        var permalink = &#39;<data:blog.canonicalUrl/>&#39;
+
                         /* <![CDATA[ */
                         /* * * CONFIGURATION VARIABLES * * */
                         window.twtConfig = {
                           publisherId: '0000014bf5d21d6f_92c535c',
                           siteId: '0000014bf5d310af_14e8cc9',
-                          authorId: '<data:post.authorProfileUrl/>',
-                          pageTitle: document.title.match(/(.*) \|.*/)[1],
-                          permalink: '<data:blog.canonicalUrl/>';
+                          authorId: authorId,
+                          pageTitle: pageTitle,
+                          permalink: permalink,
                         };
                         /* * * DON'T EDIT BELOW THIS LINE * * */
                         (function () {
@@ -1462,21 +1467,22 @@
           <b:widget id='HTML3' locked='false' title='Comments' type='HTML'>
             <b:widget-settings>
               <b:widget-setting name='content'>
-                <script id="twt-widget" type="text/javascript">
-                  /* <![CDATA[ */
+                &lt;script id=&quot;twt-widget&quot; type=&quot;text/javascript&quot;&gt;
                   window.twtWidget = {
-                    scope: 'site',
-                    id: '0000014bf5d310af_14e8cc9'
+                    scope: &#39;site&#39;,
+                    id: &#39;0000014bf5d310af_14e8cc9&#39;
                   };
+
                   (function () {
-                    var twt = document.createElement('script');
-                    twt.type = 'text/javascript';
+                    var twt = document.createElement(&#39;script&#39;);
+                    twt.type = &#39;text/javascript&#39;;
                     twt.async = true;
-                    twt.src = 'https://app.worldtable.co/widget.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(twt);
+                    twt.src = &#39;https://app.worldtable.co/widget.js&#39;;
+
+                    (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(twt);
+
                   })();
-                  /* ]]> */
-                </script>
+                &lt;/script&gt;
               </b:widget-setting>
             </b:widget-settings>
             <b:includable id='main'>
