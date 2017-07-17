@@ -34,6 +34,9 @@ a:active
   color: #525b37;
 }
 
+a:focus {
+  outline: none;	
+}
 h2
 {
   margin: 0 1px;
