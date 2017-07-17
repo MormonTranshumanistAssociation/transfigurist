@@ -394,19 +394,25 @@ font-family: 'Open Sans', sans-serif;
   max-width: 90%;
   display: inline-block;
 }
-#blog-pager-older-link,
-.blog-pager-older-link {
+#blog-pager-older-link {
+	float: left;
+}
+#blog-pager-newer-link {
+	float: right;
+}
+#blog-pager-newer-link,
+.blog-pager-newer-link {
 	text-align: right;
 }
-#blog-pager-older-link::after,
-#blog-pager-newer-link::before {
+#blog-pager-newer-link::after,
+#blog-pager-older-link::before {
 	vertical-align: top;
 }
-#blog-pager-older-link::after {
+#blog-pager-newer-link::after {
 	content: '▸';
 	padding-left: .25em;
 }
-#blog-pager-newer-link::before {
+#blog-pager-older-link::before {
 	content: '⏴';
 	padding-right: .25em;
 }
