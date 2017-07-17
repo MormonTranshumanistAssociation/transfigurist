@@ -404,11 +404,11 @@ font-family: 'Open Sans', sans-serif;
 }
 #blog-pager-older-link::after {
 	content: '▸';
-	padding-left: .2em;
+	padding-left: .25em;
 }
 #blog-pager-newer-link::before {
 	content: '⏴';
-	padding-right: .2em;
+	padding-right: .25em;
 }
 
 #recent-articles {
