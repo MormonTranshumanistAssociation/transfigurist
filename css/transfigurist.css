@@ -34,9 +34,6 @@ a:active
   color: #525b37;
 }
 
-a:focus {
-  outline: none;	
-}
 h2
 {
   margin: 0 1px;
@@ -153,7 +150,12 @@ h1.title.title.title.title a:hover
   height: 95px;
   letter-spacing: -2px;
   font-weight: 300;
+  outline: none;
 }
+
+/*h1.title a:focus {
+  outline: none;	
+}*/
 
 .descriptionwrapper
 {
@@ -211,6 +213,9 @@ h1.title.title.title.title a:hover
   color: rgba(0,0,0,.9);
 }
 
+#nav-wrapper-inner a:active {
+	outline: none;
+}
 #crosscol
 {
   height: 40px;
@@ -369,7 +374,7 @@ h1.title.title.title.title a:hover
 
 /* prev/next nav */
 #blog-pager.blog-pager {
-  padding: 1em 0;	
+  padding: 0.66em 0;	
 font-family: 'Open Sans', sans-serif;
   font-size: 12px;	
   border-top: 1px solid rgba(0,0,0,.15);
