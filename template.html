@@ -338,12 +338,7 @@
                         <div class='post-outer'>
                           <b:include data='post' name='post'/>
                           <b:include name='nextprev'/>
-                          <b:if cond='data:blog.pageType == &quot;static_page&quot;'>
-                            <b:include data='post' name='comment_picker'/>
-                          </b:if>
-                          <b:if cond='data:blog.pageType == &quot;item&quot;'>
-                            <b:include data='post' name='comment_picker'/>
-                          </b:if>
+                          <b:include data='post' name='comment_picker' />
                         </div>
                         <b:if cond='data:post.includeAd'>
                           <b:if cond='data:post.isFirstPost'>
@@ -469,37 +464,35 @@
                     </b:if>
                   </b:includable>
                   <b:includable id='comment_picker' var='post'>
-                    <b:if cond='data:blog.pageType == &quot;item&quot;'>
-                      <div class='addthis_native_toolbox'/>
-                      <div class='addthis_sharing_toolbox'/>
-                      <!-- World Table comments insertion point -->
-                      <div id='twt-embed'/>
-                      <script async='async' var='post'>
+                    <div class='addthis_native_toolbox'/>
+                    <div class='addthis_sharing_toolbox'/>
+                    <!-- World Table comments insertion point -->
+                    <div id='twt-embed'/>
+                    <script async='async' var='post'>
 
-                        var authorId = &#39;<data:post.authorProfileUrl/>&#39;
-                        var pageTitle = &#39;<data:post.title/>&#39;
-                        var permalink = &#39;<data:blog.canonicalUrl/>&#39;
+                      var authorId = &#39;<data:post.authorProfileUrl/>&#39;
+                      var pageTitle = &#39;<data:post.title/>&#39;
+                      var permalink = &#39;<data:blog.canonicalUrl/>&#39;
 
-                        /* <![CDATA[ */
-                        /* * * CONFIGURATION VARIABLES * * */
-                        window.twtConfig = {
-                          publisherId: '0000014bf5d21d6f_92c535c',
-                          siteId: '0000014bf5d310af_14e8cc9',
-                          authorId: authorId,
-                          pageTitle: pageTitle,
-                          permalink: permalink,
-                        };
-                        /* * * DON'T EDIT BELOW THIS LINE * * */
-                        (function () {
-                          var twt = document.createElement('script');
-                          twt.type = 'text/javascript';
-                          twt.async = true;
-                          twt.src = 'https://app.worldtable.co/embed.js';
-                          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(twt);
-                        })();
-                        /* ]]> */
-                      </script>
-                    </b:if>
+                      /* <![CDATA[ */
+                      /* * * CONFIGURATION VARIABLES * * */
+                      window.twtConfig = {
+                        publisherId: '0000014bf5d21d6f_92c535c',
+                        siteId: '0000014bf5d310af_14e8cc9',
+                        authorId: authorId,
+                        pageTitle: pageTitle,
+                        permalink: permalink,
+                      };
+                      /* * * DON'T EDIT BELOW THIS LINE * * */
+                      (function () {
+                        var twt = document.createElement('script');
+                        twt.type = 'text/javascript';
+                        twt.async = true;
+                        twt.src = 'https://app.worldtable.co/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(twt);
+                      })();
+                      /* ]]> */
+                    </script>
                     <b:if cond='data:post.commentSource == 1'>
                       <b:include data='post' name='iframe_comments'/>
                       <b:else/>
@@ -804,7 +797,7 @@
                               </div>
                             </div>
                           </div>
-                          <b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
+                          <b:include data='post' name='comment_picker'/>
                         </div>
                       </div>
                     </div>
